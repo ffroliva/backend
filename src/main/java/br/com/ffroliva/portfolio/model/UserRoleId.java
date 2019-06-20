@@ -1,5 +1,6 @@
 package br.com.ffroliva.portfolio.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.Embeddable;
@@ -8,6 +9,7 @@ import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Getter
+@AllArgsConstructor
 @Embeddable
 public class UserRoleId implements Serializable {
 

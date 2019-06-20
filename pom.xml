@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.ffroliva</groupId>
 	<artifactId>portfolio-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>portfolio-backend</name>
 	<description>Backend for the portfolio project.</description>
 

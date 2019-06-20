@@ -1,10 +1,12 @@
 package br.com.ffroliva.portfolio.model;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor (staticName = "of")
 public class AccountCredentials {
 
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
 }

@@ -1,8 +1,10 @@
 package br.com.ffroliva.portfolio.model;
 
+import br.com.ffroliva.portfolio.model.audit.DateAudit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -11,10 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "username"
+        }),
+        @UniqueConstraint(columnNames = {
+                "email"
+        })
+})
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
-public class User extends BaseEntity<Long> {
+public class User extends DateAudit<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +32,19 @@ public class User extends BaseEntity<Long> {
     private Long id;
 
     @NotNull
-    @Email
     @Column(name="username", nullable = false)
     private String username;
+
+    @Column(name="firstName", nullable = false)
+    private String firstName;
+
+    @Column(name="lastName", nullable = false)
+    private String lastName;
+
+    @NotNull
+    @Email
+    @Column(name="email", nullable = false)
+    private String email;
 
     @NotNull
     @Column(name="password", nullable = false)
@@ -33,7 +53,17 @@ public class User extends BaseEntity<Long> {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.role")
     private List<UserRole> userRoles = new ArrayList<>();
 
-    public static User of(String username, String password, List<UserRole> roles) {
-        return new User(null, username, password, roles);
+    public static User of(String username, String firstName, String lastName, String email, String password, List<UserRole> roles) {
+        return new User(null, username, firstName, lastName, email, password, roles);
     }
+
+    public static User of(String username, String firstName, String lastName, String email, String password) {
+        return new User(null, username, firstName, lastName, email, password, null);
+    }
+
+    public String getFullName(){
+        return firstName + " " + lastName;
+    }
+
+
 }

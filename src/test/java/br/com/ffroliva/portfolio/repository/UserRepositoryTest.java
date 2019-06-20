@@ -14,20 +14,29 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class UserRepositoryTest {
 
-    private static final User USER = User.of("user@user.com", "123456", Collections.emptyList());
-    private static final User ADMIN = User.of("admin@admin.com", "123456", Collections.emptyList());
+    private static final String USERNAME = "user";
+    private static final String FIRST_NAME = "User";
+    private static final String LAST_NAME = "Lastname";
+    private static final String EMAIL = "user@user.com";
+    private static final String PASSWORD = "password";
+
+    private static final User USER = User.of(USERNAME, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, null);
 
     @Autowired
     private UserRepository userRepository;
 
     @Test
-    void addUser(){
+    void addUser() {
         User user = userRepository.save(USER);
         assertEquals(1, user.getId());
     }
+
     @Test
-    void addUserWithInvalidUsername(){
+    void addUserWithInvalidUsername() {
         User user = User.of(
+                null,
+                null,
+                null,
                 "ffroliva.gmail",
                 "123456",
                 Collections.emptyList()
@@ -37,17 +46,22 @@ class UserRepositoryTest {
     }
 
     @Test
-    void findByEmailWithValidUsername(){
+    void findByUsername_ValidUsername() {
         userRepository.save(USER);
-        userRepository.save(ADMIN);
-        final Optional<User> optionalUser = userRepository.findByUsername("user@user.com");
+        final Optional<User> optionalUser = userRepository.findByUsername("user");
         assertTrue(optionalUser.isPresent());
     }
 
     @Test
-    void findByEmailWithInvalidUsername(){
+    void findByUsername_InvalidUsername() {
         final Optional<User> optionalUser = userRepository.findByUsername("bla@bla.com");
         assertFalse(optionalUser.isPresent());
+    }
+
+    @Test
+    void existsByUsername_Valid() {
+        userRepository.save(USER);
+        assertTrue(userRepository.existsByUsername("user"));
     }
 }
 
