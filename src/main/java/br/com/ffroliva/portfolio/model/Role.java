@@ -32,4 +32,12 @@ public class Role {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
     private List<UserRole> userRoles = new ArrayList<>();
+
+    private Role(RoleName roleName){
+        this.name = roleName;
+    }
+
+    public static Role of(RoleName roleName){
+        return new Role(roleName);
+    }
 }

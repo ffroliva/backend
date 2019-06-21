@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class JwtTokenProvider {
@@ -28,6 +30,7 @@ public class JwtTokenProvider {
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
 
         return Jwts.builder()
+                .setClaims(generateClaimsFromUserPrincipal(userPrincipal))
                 .setSubject(Long.toString(userPrincipal.getId()))
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
@@ -40,7 +43,6 @@ public class JwtTokenProvider {
                 .setSigningKey(jwtSecret)
                 .parseClaimsJws(token)
                 .getBody();
-
         return Long.parseLong(claims.getSubject());
     }
 
@@ -60,5 +62,14 @@ public class JwtTokenProvider {
             logger.error("JWT claims string is empty.");
         }
         return false;
+    }
+
+    private Map<String, Object> generateClaimsFromUserPrincipal(UserPrincipal userPrincipal){
+        Map<String, Object> map = new HashMap<>();
+        map.put("fullName", userPrincipal.getName());
+        map.put("username", userPrincipal.getUsername());
+        map.put("password", userPrincipal.getPassword());
+        map.put("roles", userPrincipal.getAuthorities());
+        return map;
     }
 }
