@@ -1,1 +1,1 @@
-insert into user (username, firstName, lastName, email, password) values ('ffroliva', 'Flavio', 'Oliva', 'ffroliva@gmail.com', 'password')
+insert into users (username, firstName, lastName, email, password) values ('ffroliva', 'Flavio', 'Oliva', 'ffroliva@gmail.com', 'password')
