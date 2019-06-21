@@ -39,6 +39,7 @@ spring:
         show_sql: true
         format_sql: true
         use_sql_comments: true
+        user_sql_commments: true
         default-schema: DBPORTIFOLIO
 
   data:
@@ -79,3 +80,21 @@ app:
   jwt:
     secret: SECRET
     expiration-in-ms: 360000
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+  okhttp:
+    enabled: true
+
+integration:
+  viacep:
+    url:  https://viacep.com.br/ws/
+
+proxy:
+  url:  http://proxy.saude.gov
+  port: 80
