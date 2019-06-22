@@ -46,12 +46,20 @@ public class User extends DateAudit<Long> {
     @Column(name="email", nullable = false)
     private String email;
 
+    private User(String username) {
+        this.username = username;
+    }
+
     @NotNull
     @Column(name="password", nullable = false)
     private String password;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.role")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
     private List<UserRole> userRoles = new ArrayList<>();
+
+    public static User of (String username){
+        return new User(username);
+    }
 
     public static User of(String username, String firstName, String lastName, String email, String password, List<UserRole> roles) {
         return new User(null, username, firstName, lastName, email, password, roles);

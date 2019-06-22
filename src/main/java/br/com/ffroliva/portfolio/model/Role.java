@@ -5,6 +5,7 @@ import br.com.ffroliva.portfolio.model.enums.RoleName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Role {
 
     @Id
@@ -23,14 +25,13 @@ public class Role {
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
-
     @Enumerated(EnumType.STRING)
     @NaturalId
     @NotNull
     @Column(name="name", nullable = false)
     private RoleName name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.role")
     private List<UserRole> userRoles = new ArrayList<>();
 
     private Role(RoleName roleName){

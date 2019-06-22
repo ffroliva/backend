@@ -1,5 +1,6 @@
 package br.com.ffroliva.portfolio.model;
 
+import br.com.ffroliva.portfolio.model.id.UserRoleId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,5 @@ public class UserRole extends BaseEntity<UserRoleId> {
     public UserRoleId getId(){
         return id;
     }
+
 }

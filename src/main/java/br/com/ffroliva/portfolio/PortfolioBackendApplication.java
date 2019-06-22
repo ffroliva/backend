@@ -3,6 +3,7 @@ package br.com.ffroliva.portfolio;
 import br.com.ffroliva.portfolio.client.ViaCepClient;
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.model.enums.RoleName;
+import br.com.ffroliva.portfolio.payload.EnderecoResponse;
 import br.com.ffroliva.portfolio.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+import org.springframework.http.ResponseEntity;
 
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
@@ -45,8 +47,8 @@ public class PortfolioBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//final ResponseEntity<EnderecoResponse> enderecoResponseEntity = viaCepClient.obterPorCep("70295010");
-		//log.debug(enderecoResponseEntity.getBody().toString());
+		final ResponseEntity<EnderecoResponse> enderecoResponseEntity = viaCepClient.obterPorCep("70295010");
+		log.debug(enderecoResponseEntity.getBody().toString());
 
 		roleRepository.save(of(ROLE_USER));
 		roleRepository.save(of(ROLE_ADMIN));
