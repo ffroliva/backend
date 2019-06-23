@@ -21,4 +21,8 @@ public class UserRole extends BaseEntity<UserRoleId> {
         return id;
     }
 
+    public static UserRole of(User user, Role role){
+        return new UserRole(new UserRoleId(user,role));
+    }
+
 }

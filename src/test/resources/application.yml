@@ -15,7 +15,7 @@ spring:
     time-zone: America/Sao_Paulo
 
   datasource:
-    url: jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
     username: sa
     password:
     data: classpath:data.sql
@@ -41,6 +41,7 @@ spring:
         use_sql_comments: true
         user_sql_commments: true
         default-schema: DBPORTIFOLIO
+        ddl-auto=update: update
 
   data:
     jpa:

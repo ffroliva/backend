@@ -1,6 +1,7 @@
 package br.com.ffroliva.portfolio.model;
 
 import br.com.ffroliva.portfolio.model.audit.DateAudit;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,6 +55,7 @@ public class User extends DateAudit<Long> {
     @Column(name="password", nullable = false)
     private String password;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
     private List<UserRole> userRoles = new ArrayList<>();
 

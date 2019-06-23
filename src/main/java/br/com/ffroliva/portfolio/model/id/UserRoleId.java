@@ -2,6 +2,7 @@ package br.com.ffroliva.portfolio.model.id;
 
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.model.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,12 @@ import java.io.Serializable;
 @Embeddable
 public class UserRoleId implements Serializable {
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+    @JsonBackReference
     @ManyToOne (fetch = FetchType.LAZY)
     private Role role;
-
 
     private UserRoleId(String username){
         this.user = User.of(username);

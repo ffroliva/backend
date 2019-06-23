@@ -20,7 +20,10 @@ public class CustomGrantedAuthorityService {
 
     List<GrantedAuthority> loadByUsername(String username) {
         final Optional<List<Role>> roles = roleRepository.findRolesByUsername(username);
-        return roles.orElseThrow(() -> new ResourceNotFoundException(Role.class.getSimpleName(), "üsername", username))
+        return roles.orElseThrow(() -> new ResourceNotFoundException(
+                Role.class.getSimpleName(),
+                "üsername"
+                , username))
                 .stream()
                 .map(r -> new SimpleGrantedAuthority(r.getName().toString()))
                 .collect(Collectors.toList());

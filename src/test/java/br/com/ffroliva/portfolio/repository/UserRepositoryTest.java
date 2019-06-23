@@ -28,7 +28,7 @@ class UserRepositoryTest {
     @Test
     void addUser() {
         User user = userRepository.save(USER);
-        assertEquals(1, user.getId());
+        assertNotNull(user.getId());
     }
 
     @Test

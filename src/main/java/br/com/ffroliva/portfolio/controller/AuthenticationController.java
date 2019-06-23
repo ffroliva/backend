@@ -87,12 +87,11 @@ public class AuthenticationController {
                 signUpRequest.getLastName(),
                 signUpRequest.getEmail(),
                 encodedPassword);
+        User result = userRepository.save(user);
 
         Role role = roleRepository
                 .findByName(ROLE_USER)
                 .orElseThrow(() -> new AppException("User Role not set."));
-
-        User result = userRepository.save(user);
 
         UserRole userRole = new UserRole(new UserRoleId(result, role));
         userRoleRepository.save(userRole);
@@ -101,7 +100,8 @@ public class AuthenticationController {
                 .fromCurrentContextPath().path("/api/users/{username}")
                 .buildAndExpand(result.getUsername()).toUri();
 
-        return ResponseEntity.created(location)
+        return ResponseEntity
+                .created(location)
                 .body(new ApiResponse(true, "User registered successfully"));
     }
 }

@@ -2,6 +2,7 @@ package br.com.ffroliva.portfolio.model;
 
 
 import br.com.ffroliva.portfolio.model.enums.RoleName;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,7 @@ public class Role {
     @Column(name="name", nullable = false)
     private RoleName name;
 
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.role")
     private List<UserRole> userRoles = new ArrayList<>();
 
