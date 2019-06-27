@@ -38,7 +38,7 @@ import static br.com.ffroliva.portfolio.model.enums.RoleName.ROLE_USER;
 @EnableFeignClients
 public class PortfolioBackendApplication implements CommandLineRunner {
 
-	private final ViaCepClient viaCepClient;
+	//private final ViaCepClient viaCepClient;
 	private final RoleRepository roleRepository;
 	private final UserRepository userRepository;
 	private final UserRoleRepository userRoleRepository;
@@ -56,10 +56,10 @@ public class PortfolioBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		final ResponseEntity<EnderecoResponse> enderecoResponseEntity = viaCepClient.obterPorCep("70295010");
-		log.debug(enderecoResponseEntity.getBody().toString());
+		//final ResponseEntity<EnderecoResponse> enderecoResponseEntity = viaCepClient.obterPorCep("70295010");
+		//log.debug(enderecoResponseEntity.getBody().toString());
 
-		Role roleUser = roleRepository.save(of(ROLE_USER));
+/*		Role roleUser = roleRepository.save(of(ROLE_USER));
 		roleRepository.save(of(ROLE_ADMIN));
 		String encodedPassword = passwordEncoder.encode("123456");
 		final User user = userRepository.save(User.of(
@@ -68,7 +68,7 @@ public class PortfolioBackendApplication implements CommandLineRunner {
 				"Oliva",
 				"ffroliva@gmail.com",
 				encodedPassword));
-		userRoleRepository.save(UserRole.of(user,roleUser));
+		userRoleRepository.save(UserRole.of(user,roleUser));*/
 
 	}
 }
