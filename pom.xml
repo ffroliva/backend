@@ -196,6 +196,10 @@
                     <includes>
                         <include>**/*IT.java</include>
                     </includes>
+                    <!--
+	                 Make failsafe and spring-boot repackage play nice together
+    	            -->
+                    <classesDirectory>${project.build.directory}/${project.artifactId}.jar.original</classesDirectory>
                 </configuration>
             </plugin>			
 			<plugin>
