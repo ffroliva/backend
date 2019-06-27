@@ -42,16 +42,10 @@ public class User extends DateAudit<Long> {
     @Column(name="lastName", nullable = false)
     private String lastName;
 
-    @NotNull
     @Email
     @Column(name="email", nullable = false)
     private String email;
 
-    private User(String username) {
-        this.username = username;
-    }
-
-    @NotNull
     @Column(name="password", nullable = false)
     private String password;
 
@@ -59,6 +53,10 @@ public class User extends DateAudit<Long> {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
     private List<UserRole> userRoles = new ArrayList<>();
 
+    private User(String username) {
+        this.username = username;
+    }
+    
     public static User of (String username){
         return new User(username);
     }

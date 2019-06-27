@@ -12,12 +12,14 @@ import javax.validation.ConstraintViolationException;
 
 @ControllerAdvice
 class GlobalExceptionHandler {
-    @ExceptionHandler(TransactionSystemException.class)
+    private static final String VALIDATION_ERROR = "VALIDATION_ERROR";
+
+	@ExceptionHandler(TransactionSystemException.class)
     public ResponseEntity<Object> handleError(final TransactionSystemException tse) {
-        if (tse.getCause() != null && tse.getCause() instanceof RollbackException) {
+        if (tse.getCause() instanceof RollbackException) {
             final RollbackException re = (RollbackException) tse.getCause();
 
-            if (re.getCause() != null && re.getCause() instanceof ConstraintViolationException) {
+            if (re.getCause() instanceof ConstraintViolationException) {
                 return handleError((ConstraintViolationException) re.getCause());
             }
         }
@@ -29,17 +31,17 @@ class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     ResponseEntity<Object> handleError(final ConstraintViolationException cve) {
         for (final ConstraintViolation<?> v : cve.getConstraintViolations())
-            return new ResponseEntity<>(new Object() {
-                public String getErrorCode() {
-                    return "VALIDATION_ERROR";
-                }
-
-
-                public String getMessage() {
-                    return v.getMessage();
-                }
-            }, HttpStatus.BAD_REQUEST);
-
+        	if(v != null){
+        		return new ResponseEntity<>(new Object() {
+        			public String getErrorCode() {
+        				return VALIDATION_ERROR;
+        			}
+        			
+        			public String getMessage() {
+        				return v.getMessage();
+        			}
+        		}, HttpStatus.BAD_REQUEST);
+        	}
         throw cve;
     }
 }
