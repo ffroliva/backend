@@ -95,7 +95,3 @@ feign:
 integration:
   viacep:
     url:  https://viacep.com.br/ws/
-
-proxy:
-  url:  http://proxy.saude.gov
-  port: 80

@@ -2,9 +2,8 @@ package br.com.ffroliva.portfolio.config.properties;
 
 public enum MessageProperty implements IMessageProperty {
 
-    REGISTRO_DUPLICADO("registro.duplicado"),
     USER_REGISTERED_SUCCESSFULLY("user.registered.successfully"),
-    USER_ALREADY_TAKEN("user.already.taken"),
+    USERNAME_ALREADY_TAKEN("username.already.taken"),
     EMAIL_ALREADY_IN_USE("email.already.in.use");
 
     private String[] args = {};

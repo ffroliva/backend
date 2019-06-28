@@ -12,36 +12,28 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @Slf4j
 @SpringBootTest
-public class RoleRepositoryTest {
+class RoleRepositoryTest {
 
     @Autowired
     private RoleRepository roleRepository;
 
     @Test
-    public void findRolesByUsername() {
-        final Optional<List<Role>> roles = roleRepository.findRolesByUsername("ffroliva");
-        roles.get().stream().forEach(r -> log.debug(r.toString()));
-        Assertions.assertTrue(roles.isPresent());
-    }
-
-    @Test
-    public void findRolesByUsername_invalidUser() {
-        final Optional<List<Role>> roles = roleRepository.findRolesByUsername("invalid_user");
-        Assertions.assertFalse(roles.isPresent());
-    }
-
-    @Test
-    public void findRole() {
+    void findRole() {
         final Optional<Role> role = roleRepository.findByName(RoleName.ROLE_USER);
-        Assertions.assertTrue(role.isPresent());
+        assertTrue(role.isPresent());
     }
 
     @Test
-    public void loadRolesByUsername() {
+    void loadRolesByUsername() {
         final Optional<List<Role>> roles = roleRepository.loadRolesByUsername("ffroliva");
-        roles.get().stream().forEach(r -> log.debug(r.toString()));
-        Assertions.assertTrue(roles.isPresent());
+        assertTrue(roles.isPresent());
+        assertEquals(roles.get().size(), 1);
+        Role role = roles.get().get(0);
+        assertEquals(role.getId(), 1);
+        assertEquals(role.getName(), RoleName.ROLE_USER);
     }
 }

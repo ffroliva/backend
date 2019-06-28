@@ -1,20 +1,17 @@
 package br.com.ffroliva.portfolio.payload;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import javax.validation.constraints.NotBlank;
+
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @RequiredArgsConstructor(staticName = "of")
 public class LoginRequest {
     @NotBlank
-    private String usernameOrEmail;
+    private final String usernameOrEmail;
 
     @NotBlank
-    private String password;
+    private final String password;
 
 }
