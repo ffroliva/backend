@@ -1,12 +1,14 @@
 package br.com.ffroliva.portfolio.util;
 
-import br.com.ffroliva.portfolio.model.AccountCredentials;
-import br.com.ffroliva.portfolio.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
 import org.springframework.beans.factory.annotation.Value;
+
+import br.com.ffroliva.portfolio.model.AccountCredentials;
+import br.com.ffroliva.portfolio.model.User;
 
 
 public class JWTUtil {

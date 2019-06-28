@@ -1,12 +1,13 @@
 package br.com.ffroliva.portfolio.repository;
 
-import br.com.ffroliva.portfolio.model.User;
-import br.com.ffroliva.portfolio.model.UserRole;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import java.util.List;
-import java.util.Optional;
+import br.com.ffroliva.portfolio.model.User;
+import br.com.ffroliva.portfolio.model.UserRole;
 
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 

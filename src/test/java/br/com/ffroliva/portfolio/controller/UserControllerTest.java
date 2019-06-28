@@ -7,7 +7,6 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import io.restassured.module.mockmvc.response.MockMvcResponse;
 import lombok.extern.slf4j.Slf4j;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +19,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.web.context.WebApplicationContext;
 
 import br.com.ffroliva.portfolio.PortfolioBackendApplication;
-import br.com.ffroliva.portfolio.payload.LoginRequest;
 
 @Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = { PortfolioBackendApplication.class })

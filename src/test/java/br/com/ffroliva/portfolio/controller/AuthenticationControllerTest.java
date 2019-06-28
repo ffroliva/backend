@@ -5,12 +5,11 @@ import static br.com.ffroliva.portfolio.config.properties.MessageProperty.EMAIL_
 import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USERNAME_ALREADY_TAKEN;
 import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USER_REGISTERED_SUCCESSFULLY;
 import static io.restassured.http.ContentType.JSON;
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.*;
-import static org.hamcrest.Matchers.*;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
-import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 

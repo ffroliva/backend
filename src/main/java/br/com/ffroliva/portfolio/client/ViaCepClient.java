@@ -1,7 +1,8 @@
 package br.com.ffroliva.portfolio.client;
 
-import br.com.ffroliva.portfolio.api.CepApi;
 import org.springframework.cloud.openfeign.FeignClient;
+
+import br.com.ffroliva.portfolio.api.CepApi;
 
 
 @FeignClient(name = "viacep", url = "${integration.viacep.url}")
