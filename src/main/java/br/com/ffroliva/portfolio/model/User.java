@@ -85,5 +85,10 @@ public class User extends DateAudit<Long> {
     public String getFullName(){
         return firstName + " " + lastName;
     }
+    
+    @Override
+    public Long getId(){
+    	return id;
+    }
 
 }
