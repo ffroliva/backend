@@ -50,6 +50,8 @@ public class PortfolioBackendApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		log.info("Initializing App...");
+		
 		Role roleUser = roleRepository.save(Role.of(RoleName.ROLE_USER));
 		roleRepository.save(Role.of(RoleName.ROLE_ADMIN));
 		String encodedPassword = passwordEncoder.encode("123456");

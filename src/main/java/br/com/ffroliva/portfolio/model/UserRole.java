@@ -1,13 +1,15 @@
 package br.com.ffroliva.portfolio.model;
 
-import br.com.ffroliva.portfolio.model.id.UserRoleId;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import br.com.ffroliva.portfolio.model.id.UserRoleId;
+
+@ToString
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

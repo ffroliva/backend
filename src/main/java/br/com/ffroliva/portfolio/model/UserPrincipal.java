@@ -1,19 +1,24 @@
 package br.com.ffroliva.portfolio.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Getter
 public class  UserPrincipal implements UserDetails {
-    private Long id;
+
+	private static final long serialVersionUID = -1111403067001073490L;
+
+	private Long id;
 
     private String name;
 

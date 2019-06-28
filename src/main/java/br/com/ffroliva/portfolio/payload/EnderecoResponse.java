@@ -1,19 +1,22 @@
 package br.com.ffroliva.portfolio.payload;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @ToString
 public class EnderecoResponse  implements Serializable {
 
-    @NotNull
+	private static final long serialVersionUID = -3755047966292286928L;
+
+	@NotNull
     @Size(max = 8)
     private String cep;
 

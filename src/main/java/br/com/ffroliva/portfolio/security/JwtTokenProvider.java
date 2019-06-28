@@ -1,22 +1,26 @@
 package br.com.ffroliva.portfolio.security;
 
-import br.com.ffroliva.portfolio.model.UserPrincipal;
-import io.jsonwebtoken.*;
+import static java.util.stream.Collectors.toList;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.UnsupportedJwtException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import lombok.extern.slf4j.Slf4j;
-import static java.util.stream.Collectors.toList;
+import br.com.ffroliva.portfolio.model.UserPrincipal;
 
 @Slf4j
 @Component

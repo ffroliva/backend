@@ -2,9 +2,11 @@ package br.com.ffroliva.portfolio.model;
 
 import java.io.Serializable;
 
-public abstract class BaseEntity<K extends Serializable> {
+public abstract class BaseEntity<K extends Serializable> implements Serializable {
 
-    abstract K getId();
+	private static final long serialVersionUID = 3470083738721419180L;
+
+	abstract K getId();
 
     @Override
     public boolean equals(Object o) {

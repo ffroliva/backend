@@ -1,18 +1,19 @@
 package br.com.ffroliva.portfolio.repository;
 
-import br.com.ffroliva.portfolio.model.Role;
-import br.com.ffroliva.portfolio.model.enums.RoleName;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import lombok.extern.slf4j.Slf4j;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import br.com.ffroliva.portfolio.model.Role;
+import br.com.ffroliva.portfolio.model.enums.RoleName;
 
 @Slf4j
 @SpringBootTest
@@ -23,6 +24,7 @@ class RoleRepositoryTest {
 
     @Test
     void findRole() {
+    	log.info("Find roles...");
         final Optional<Role> role = roleRepository.findByName(RoleName.ROLE_USER);
         assertTrue(role.isPresent());
     }

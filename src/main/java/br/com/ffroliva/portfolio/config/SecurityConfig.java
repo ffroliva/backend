@@ -1,10 +1,7 @@
 package br.com.ffroliva.portfolio.config;
 
-import br.com.ffroliva.portfolio.security.JwtAuthenticationEntryPoint;
-import br.com.ffroliva.portfolio.security.JwtAuthenticationFilter;
-import br.com.ffroliva.portfolio.service.impl.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -19,6 +16,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import br.com.ffroliva.portfolio.security.JwtAuthenticationEntryPoint;
+import br.com.ffroliva.portfolio.security.JwtAuthenticationFilter;
+import br.com.ffroliva.portfolio.service.impl.CustomUserDetailService;
 
 @RequiredArgsConstructor
 @Configuration
@@ -106,7 +107,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated();
 
         // Config to enable /h2-console to work propertly
-        //http.headers().frameOptions().disable();
         http.headers().frameOptions().sameOrigin();
 
         // Add our custom JWT security filter
