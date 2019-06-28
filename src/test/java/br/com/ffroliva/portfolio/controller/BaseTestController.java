@@ -15,6 +15,8 @@ public class BaseTestController {
 				.contentType(JSON)
 				.body(LoginRequest.of(usernameOrEmail, password))
 				.post("/api/auth/signin");
+		log.info(response.getBody().toString());
+		log.info(response.getBody().jsonPath().prettify());
 		String accessToken = response.getBody().jsonPath().get("accessToken");
 		String authorization = "Bearer " + accessToken;
 		log.info(authorization);

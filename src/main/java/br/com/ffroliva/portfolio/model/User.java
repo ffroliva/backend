@@ -86,5 +86,4 @@ public class User extends DateAudit<Long> {
         return firstName + " " + lastName;
     }
 
-
 }
