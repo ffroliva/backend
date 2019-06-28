@@ -24,6 +24,7 @@ class RoleRepositoryTest {
 
     @Test
     void findRole() {
+    	log.info("Find roles...");
         final Optional<Role> role = roleRepository.findByName(RoleName.ROLE_USER);
         assertTrue(role.isPresent());
     }

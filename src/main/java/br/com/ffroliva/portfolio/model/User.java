@@ -38,7 +38,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @AllArgsConstructor(staticName = "of")
 public class User extends DateAudit<Long> {
 
-    @Id
+	private static final long serialVersionUID = -4373524336039096881L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;

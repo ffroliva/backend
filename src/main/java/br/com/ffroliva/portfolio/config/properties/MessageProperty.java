@@ -26,9 +26,6 @@ public enum MessageProperty implements IMessageProperty {
         this.args = args;
         return this;
     }
-    
-    public String toString() {
-    	return this.message();
-    }
+
 }
 

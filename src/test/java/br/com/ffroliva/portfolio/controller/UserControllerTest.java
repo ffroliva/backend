@@ -20,7 +20,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import br.com.ffroliva.portfolio.PortfolioBackendApplication;
 
-@Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = { PortfolioBackendApplication.class })
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)

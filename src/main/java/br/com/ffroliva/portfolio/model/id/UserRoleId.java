@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.model.User;
 

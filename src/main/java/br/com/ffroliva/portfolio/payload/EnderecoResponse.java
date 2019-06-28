@@ -14,7 +14,9 @@ import lombok.ToString;
 @ToString
 public class EnderecoResponse  implements Serializable {
 
-    @NotNull
+	private static final long serialVersionUID = -3755047966292286928L;
+
+	@NotNull
     @Size(max = 8)
     private String cep;
 

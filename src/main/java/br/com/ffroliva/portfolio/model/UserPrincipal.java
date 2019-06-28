@@ -15,7 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Getter
 public class  UserPrincipal implements UserDetails {
-    private Long id;
+
+	private static final long serialVersionUID = -1111403067001073490L;
+
+	private Long id;
 
     private String name;
 
