@@ -18,10 +18,12 @@ import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import br.com.ffroliva.portfolio.model.audit.DateAudit;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+@ToString
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
@@ -69,7 +71,7 @@ public class User extends DateAudit<Long> {
     public static User of (String username){
         return new User(username);
     }
-
+    
     public static User of(String username, String firstName, String lastName, String email, String password, List<UserRole> roles) {
         return new User(null, username, firstName, lastName, email, password, roles);
     }

@@ -107,7 +107,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated();
 
         // Config to enable /h2-console to work propertly
-        //http.headers().frameOptions().disable();
         http.headers().frameOptions().sameOrigin();
 
         // Add our custom JWT security filter

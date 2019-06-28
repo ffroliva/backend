@@ -15,25 +15,24 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import br.com.ffroliva.portfolio.model.BaseEntity;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Getter
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(
-        value = {"createdAt", "updatedAt"},
-        allowGetters = true
-)
-public abstract class DateAudit<K extends Serializable> extends BaseEntity implements Serializable {
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
+public abstract class DateAudit<K extends Serializable> extends BaseEntity<K>
+		implements Serializable {
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private Instant createdAt;
+	private static final long serialVersionUID = 885852444268682901L;
 
-    @LastModifiedDate
-    @Column(nullable = false)
-    private Instant updatedAt;
+	@CreatedDate
+	@Column(nullable = false, updatable = false)
+	private Instant createdAt;
+
+	@LastModifiedDate
+	@Column(nullable = false)
+	private Instant updatedAt;
 
 }
