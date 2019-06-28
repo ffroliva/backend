@@ -19,6 +19,7 @@ class UserRepositoryTest {
     private static final String LAST_NAME = "Lastname";
     private static final String EMAIL = "user@user.com";
     private static final String PASSWORD = "password";
+    private static final String FULL_NAME = FIRST_NAME + " " +LAST_NAME;
 
     private static final User USER = User.of(USERNAME, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, null);
 
@@ -29,6 +30,15 @@ class UserRepositoryTest {
     void addUser() {
         User user = userRepository.save(USER);
         assertNotNull(user.getId());
+        assertEquals(user.getEmail(), EMAIL);
+        assertEquals(user.getFirstName(), FIRST_NAME);
+        assertEquals(user.getFullName(), FULL_NAME);
+        assertEquals(user.getLastName(), LAST_NAME);
+        assertEquals(user.getPassword(), PASSWORD);
+        assertEquals(user.getUsername(), USERNAME);
+        assertNull(user.getUserRoles());
+        assertNotNull(user.getCreatedAt());
+        assertNotNull(user.getUpdatedAt());
     }
 
     @Test

@@ -75,7 +75,7 @@ management:
 logging:
   level:
     org.springframework.security: ERROR
-    org.hibernate: INFO
+    org.hibernate: DEBUG
 
 app:
   jwt:

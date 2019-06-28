@@ -22,6 +22,9 @@
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <okhttp.version>3.14.2</okhttp.version>
         <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
+		<io.rest-assured.version>3.3.0</io.rest-assured.version>
+		<org.junit.platform.version>1.4.0</org.junit.platform.version>
+		<com.okta.spring.version>1.2.0</com.okta.spring.version>
 	</properties>
 
 	<dependencies>
@@ -48,7 +51,7 @@
 		<dependency>
 			<groupId>com.okta.spring</groupId>
 			<artifactId>okta-spring-boot-starter</artifactId>
-			<version>1.2.0</version>
+			<version>${com.okta.spring.version}</version>
 		</dependency>
 
 		<dependency>
@@ -125,18 +128,26 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons -->
+		<!-- REST ASSURED BEGIN-->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${io.rest-assured.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- REST ASSURED END -->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-commons</artifactId>
-			<version>1.4.0</version>
+			<version>${org.junit.platform.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-launcher</artifactId>
-			<version>1.4.0</version>
+			<version>${org.junit.platform.version}</version>
 			<scope>test</scope>
 		</dependency>
 
