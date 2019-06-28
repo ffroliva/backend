@@ -75,7 +75,7 @@ management:
 logging:
   level:
     org.springframework.security: ERROR
-    org.hibernate: DEBUG
+    org.hibernate: INFO
 
 app:
   jwt:
@@ -95,7 +95,3 @@ feign:
 integration:
   viacep:
     url:  https://viacep.com.br/ws/
-
-proxy:
-  url:  http://proxy.saude.gov
-  port: 80

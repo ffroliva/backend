@@ -1,7 +1,29 @@
 package br.com.ffroliva.portfolio.controller;
 
-import br.com.ffroliva.portfolio.config.properties.MessageProperty;
-import br.com.ffroliva.portfolio.config.properties.MessageSource;
+import static br.com.ffroliva.portfolio.config.properties.MessageProperty.EMAIL_ALREADY_IN_USE;
+import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USERNAME_ALREADY_TAKEN;
+import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USER_REGISTERED_SUCCESSFULLY;
+import static br.com.ffroliva.portfolio.model.enums.RoleName.ROLE_USER;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
+import java.net.URI;
+
+import javax.validation.Valid;
+
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import br.com.ffroliva.portfolio.exception.AppException;
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.model.User;
@@ -15,29 +37,6 @@ import br.com.ffroliva.portfolio.repository.RoleRepository;
 import br.com.ffroliva.portfolio.repository.UserRepository;
 import br.com.ffroliva.portfolio.repository.UserRoleRepository;
 import br.com.ffroliva.portfolio.security.JwtTokenProvider;
-import lombok.RequiredArgsConstructor;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.validation.Valid;
-
-import java.net.URI;
-
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.EMAIL_ALREADY_IN_USE;
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USER_ALREADY_TAKEN;
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USER_REGISTERED_SUCCESSFULLY;
-import static br.com.ffroliva.portfolio.model.enums.RoleName.ROLE_USER;
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -58,7 +57,6 @@ public class AuthenticationController {
 
     @PostMapping("/signin")
     public ResponseEntity<JwtAuthenticationResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUsernameOrEmail(),
@@ -75,12 +73,14 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<ApiResponse> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if(userRepository.existsByUsername(signUpRequest.getUsername())) {
-            return new ResponseEntity(new ApiResponse(false, USER_ALREADY_TAKEN),
+            return new ResponseEntity<ApiResponse>(
+            		new ApiResponse(false, USERNAME_ALREADY_TAKEN.message()),
                     BAD_REQUEST);
         }
 
         if(userRepository.existsByEmail(signUpRequest.getEmail())) {
-            return new ResponseEntity(new ApiResponse(false, EMAIL_ALREADY_IN_USE),
+            return new ResponseEntity<ApiResponse>(
+            		new ApiResponse(false, EMAIL_ALREADY_IN_USE.message()),
                     BAD_REQUEST);
         }
 
@@ -108,6 +108,6 @@ public class AuthenticationController {
 
         return ResponseEntity
                 .created(location)
-                .body(new ApiResponse(true, USER_REGISTERED_SUCCESSFULLY));
+                .body(new ApiResponse(true, USER_REGISTERED_SUCCESSFULLY.message()));
     }
 }

@@ -10,5 +10,5 @@ import lombok.ToString;
 @ToString
 public class ApiResponse {
     private final Boolean success;
-    private final IMessageProperty message;
+    private final String message;
 }

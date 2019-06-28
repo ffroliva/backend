@@ -1,13 +1,17 @@
 package br.com.ffroliva.portfolio.payload;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import javax.validation.constraints.*;
+import lombok.NoArgsConstructor;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
+@AllArgsConstructor(staticName="of")
 public class SignupRequest {
     @NotBlank
     @Size(min = 2, max = 40)
