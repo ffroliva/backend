@@ -42,7 +42,7 @@ public class User extends DateAudit<Long> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "user_id", updatable = false, nullable = false)
     private Long id;
 
     @NotNull

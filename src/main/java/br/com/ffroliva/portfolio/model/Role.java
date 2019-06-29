@@ -35,7 +35,7 @@ public class Role extends BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "role_id", updatable = false, nullable = false)
     private Long id;
 
     @Enumerated(EnumType.STRING)
