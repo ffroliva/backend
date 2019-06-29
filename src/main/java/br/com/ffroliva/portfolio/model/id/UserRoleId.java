@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -26,9 +27,11 @@ public class UserRoleId implements Serializable {
 	
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="user_id")
 	private User user;
 	@JsonBackReference
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="role_id")
 	private Role role;
 
 	private UserRoleId(String username) {
