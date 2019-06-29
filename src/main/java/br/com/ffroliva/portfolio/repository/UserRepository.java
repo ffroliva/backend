@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import br.com.ffroliva.portfolio.model.User;
 import br.com.ffroliva.portfolio.model.UserRole;
 
-public interface UserRepository extends PagingAndSortingRepository<User, Long> {
+public interface UserRepository extends PagingAndSortingRepository<User, Integer> {
 
     Optional<User> findByUsername(String username);
 

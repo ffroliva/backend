@@ -28,12 +28,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Role extends BaseEntity<Long> {
+public class Role extends BaseEntity<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id", updatable = false, nullable = false)
-    private Long id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     @NaturalId

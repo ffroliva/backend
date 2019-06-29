@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.model.enums.RoleName;
 
-public interface RoleRepository extends PagingAndSortingRepository<Role, Long> {
+public interface RoleRepository extends PagingAndSortingRepository<Role, Integer> {
 
     Optional<Role> findByName(RoleName name);
 
