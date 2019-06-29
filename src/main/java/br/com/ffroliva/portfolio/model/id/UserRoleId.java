@@ -26,11 +26,11 @@ public class UserRoleId implements Serializable {
 	private static final long serialVersionUID = 7655602272158439673L;
 	
 	@JsonBackReference
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = User.class)
 	@JoinColumn(name="user_id")
 	private User user;
 	@JsonBackReference
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Role.class)
 	@JoinColumn(name="role_id")
 	private Role role;
 
