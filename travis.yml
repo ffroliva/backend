@@ -1,0 +1,18 @@
+language: java
+
+install:
+  - mvn -B install -U
+
+after_success:
+  - util/deploy_snapshot.sh
+  - util/deploy_docs.sh
+  - bash <(curl -s https://codecov.io/bash)
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - $HOME/.m2
+
