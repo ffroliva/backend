@@ -2,6 +2,7 @@ package br.com.ffroliva.portfolio.service;
 
 import br.com.ffroliva.portfolio.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.List;
 
+@Disabled
 @SpringBootTest
 class GrantedAuthorityServiceTest {
 
