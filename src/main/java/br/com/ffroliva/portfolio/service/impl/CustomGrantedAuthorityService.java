@@ -1,19 +1,17 @@
 package br.com.ffroliva.portfolio.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import lombok.RequiredArgsConstructor;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.stereotype.Service;
-
 import br.com.ffroliva.portfolio.exception.ResourceNotFoundException;
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.repository.RoleRepository;
 import br.com.ffroliva.portfolio.service.GrantedAuthorityService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

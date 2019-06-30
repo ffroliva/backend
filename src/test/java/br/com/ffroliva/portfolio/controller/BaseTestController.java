@@ -1,10 +1,11 @@
 package br.com.ffroliva.portfolio.controller;
 
-import static io.restassured.http.ContentType.JSON;
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import br.com.ffroliva.portfolio.payload.LoginRequest;
 import io.restassured.module.mockmvc.response.MockMvcResponse;
 import lombok.extern.slf4j.Slf4j;
-import br.com.ffroliva.portfolio.payload.LoginRequest;
+
+import static io.restassured.http.ContentType.JSON;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 
 @Slf4j
 public class BaseTestController {

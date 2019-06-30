@@ -1,12 +1,14 @@
 package br.com.ffroliva.portfolio;
 
-import java.util.TimeZone;
-
-import javax.annotation.PostConstruct;
-
+import br.com.ffroliva.portfolio.model.Role;
+import br.com.ffroliva.portfolio.model.User;
+import br.com.ffroliva.portfolio.model.UserRole;
+import br.com.ffroliva.portfolio.model.enums.RoleName;
+import br.com.ffroliva.portfolio.repository.RoleRepository;
+import br.com.ffroliva.portfolio.repository.UserRepository;
+import br.com.ffroliva.portfolio.repository.UserRoleRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,13 +17,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import br.com.ffroliva.portfolio.model.Role;
-import br.com.ffroliva.portfolio.model.User;
-import br.com.ffroliva.portfolio.model.UserRole;
-import br.com.ffroliva.portfolio.model.enums.RoleName;
-import br.com.ffroliva.portfolio.repository.RoleRepository;
-import br.com.ffroliva.portfolio.repository.UserRepository;
-import br.com.ffroliva.portfolio.repository.UserRoleRepository;
+import javax.annotation.PostConstruct;
+import java.util.TimeZone;
 
 @Slf4j
 @RequiredArgsConstructor

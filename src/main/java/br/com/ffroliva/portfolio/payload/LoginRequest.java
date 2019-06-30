@@ -1,9 +1,9 @@
 package br.com.ffroliva.portfolio.payload;
 
-import javax.validation.constraints.NotBlank;
-
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @RequiredArgsConstructor(staticName = "of")

@@ -25,6 +25,7 @@
 		<io.rest-assured.version>3.3.0</io.rest-assured.version>
 		<org.junit.platform.version>1.4.0</org.junit.platform.version>
 		<com.okta.spring.version>1.2.0</com.okta.spring.version>
+		<mockito-junit-jupiter.version>2.23.0</mockito-junit-jupiter.version>
 	</properties>
 
 	<dependencies>
@@ -162,6 +163,15 @@
 	      <artifactId>spring-web-test-client</artifactId>
 	      <version>${io.rest-assured.version}</version>
 	      <scope>test</scope>
+		</dependency>
+
+		<!-- JUnit 5 -->
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito-junit-jupiter.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- REST ASSURED END -->

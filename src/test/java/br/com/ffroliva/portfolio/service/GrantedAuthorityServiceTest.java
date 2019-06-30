@@ -1,17 +1,16 @@
 package br.com.ffroliva.portfolio.service;
 
-import java.util.List;
-
+import br.com.ffroliva.portfolio.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.GrantedAuthority;
 
-import br.com.ffroliva.portfolio.exception.ResourceNotFoundException;
+import java.util.List;
 
 @SpringBootTest
-class CustomGrantedAuthorityServiceTest {
+class GrantedAuthorityServiceTest {
 
     @Autowired
     private GrantedAuthorityService service;

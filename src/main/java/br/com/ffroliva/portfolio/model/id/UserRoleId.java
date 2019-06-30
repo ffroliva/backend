@@ -1,20 +1,18 @@
 package br.com.ffroliva.portfolio.model.id;
 
-import java.io.Serializable;
+import br.com.ffroliva.portfolio.model.Role;
+import br.com.ffroliva.portfolio.model.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import br.com.ffroliva.portfolio.model.Role;
-import br.com.ffroliva.portfolio.model.User;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor

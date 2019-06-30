@@ -1,22 +1,18 @@
 package br.com.ffroliva.portfolio.model;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
+import br.com.ffroliva.portfolio.model.enums.RoleName;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 import org.hibernate.annotations.NaturalId;
 
-import br.com.ffroliva.portfolio.model.enums.RoleName;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
