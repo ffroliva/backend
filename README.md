@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ffroliva/portfolio-backend.svg?branch=master)](https://travis-ci.org/ffroliva/portfolio-backend)
+[![CircleCI](https://circleci.com/gh/ffroliva/portfolio-backend.svg?style=svg)](https://circleci.com/gh/ffroliva/portfolio-backend)
 # Porfolio-Backend API
 Backend
 
