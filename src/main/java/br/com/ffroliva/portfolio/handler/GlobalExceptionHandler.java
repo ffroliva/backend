@@ -1,11 +1,6 @@
 package br.com.ffroliva.portfolio.handler;
 
-import javax.persistence.RollbackException;
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +10,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import javax.persistence.RollbackException;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 
 @Slf4j
 @ControllerAdvice

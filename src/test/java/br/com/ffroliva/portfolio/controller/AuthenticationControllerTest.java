@@ -1,18 +1,11 @@
 package br.com.ffroliva.portfolio.controller;
 
 
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.EMAIL_ALREADY_IN_USE;
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USERNAME_ALREADY_TAKEN;
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USER_REGISTERED_SUCCESSFULLY;
-import static io.restassured.http.ContentType.JSON;
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.CREATED;
+import br.com.ffroliva.portfolio.PortfolioBackendApplication;
+import br.com.ffroliva.portfolio.payload.LoginRequest;
+import br.com.ffroliva.portfolio.payload.SignupRequest;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -23,9 +16,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.web.context.WebApplicationContext;
 
-import br.com.ffroliva.portfolio.PortfolioBackendApplication;
-import br.com.ffroliva.portfolio.payload.LoginRequest;
-import br.com.ffroliva.portfolio.payload.SignupRequest;
+import static br.com.ffroliva.portfolio.config.properties.MessageProperty.*;
+import static io.restassured.http.ContentType.JSON;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.CREATED;
 
 @SpringBootTest(
 		webEnvironment = SpringBootTest.WebEnvironment.MOCK, 

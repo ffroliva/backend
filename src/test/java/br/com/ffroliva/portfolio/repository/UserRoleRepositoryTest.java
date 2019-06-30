@@ -1,20 +1,18 @@
 package br.com.ffroliva.portfolio.repository;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.List;
-import java.util.Optional;
-
+import br.com.ffroliva.portfolio.model.Role;
+import br.com.ffroliva.portfolio.model.User;
+import br.com.ffroliva.portfolio.model.UserRole;
 import lombok.extern.slf4j.Slf4j;
-
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.ffroliva.portfolio.model.Role;
-import br.com.ffroliva.portfolio.model.User;
-import br.com.ffroliva.portfolio.model.UserRole;
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Slf4j
 @SpringBootTest

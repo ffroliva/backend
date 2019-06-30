@@ -1,8 +1,8 @@
 package br.com.ffroliva.portfolio.config.properties;
 
-import java.util.Locale;
-
 import org.springframework.context.support.ResourceBundleMessageSource;
+
+import java.util.Locale;
 
 public class MessageSource {
     private static final ResourceBundleMessageSource messageSource;

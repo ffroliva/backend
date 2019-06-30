@@ -1,29 +1,5 @@
 package br.com.ffroliva.portfolio.controller;
 
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.EMAIL_ALREADY_IN_USE;
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USERNAME_ALREADY_TAKEN;
-import static br.com.ffroliva.portfolio.config.properties.MessageProperty.USER_REGISTERED_SUCCESSFULLY;
-import static br.com.ffroliva.portfolio.model.enums.RoleName.ROLE_USER;
-import static org.springframework.http.HttpStatus.BAD_REQUEST;
-
-import java.net.URI;
-
-import javax.validation.Valid;
-
-import lombok.RequiredArgsConstructor;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import br.com.ffroliva.portfolio.exception.AppException;
 import br.com.ffroliva.portfolio.model.Role;
 import br.com.ffroliva.portfolio.model.User;
@@ -37,6 +13,25 @@ import br.com.ffroliva.portfolio.repository.RoleRepository;
 import br.com.ffroliva.portfolio.repository.UserRepository;
 import br.com.ffroliva.portfolio.repository.UserRoleRepository;
 import br.com.ffroliva.portfolio.security.JwtTokenProvider;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import javax.validation.Valid;
+import java.net.URI;
+
+import static br.com.ffroliva.portfolio.config.properties.MessageProperty.*;
+import static br.com.ffroliva.portfolio.model.enums.RoleName.ROLE_USER;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestController
 @RequestMapping("/api/auth")

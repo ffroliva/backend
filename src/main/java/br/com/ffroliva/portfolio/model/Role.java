@@ -1,42 +1,35 @@
 package br.com.ffroliva.portfolio.model;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
-
+import br.com.ffroliva.portfolio.model.enums.RoleName;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 import org.hibernate.annotations.NaturalId;
 
-import br.com.ffroliva.portfolio.model.enums.RoleName;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
+@Table(name = "roles", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "name"
+        })
+})
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Role extends BaseEntity<Long> {
+public class Role extends BaseEntity<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id", updatable = false, nullable = false)
-    private Long id;
+    private Integer id;
 
     @Enumerated(EnumType.STRING)
     @NaturalId

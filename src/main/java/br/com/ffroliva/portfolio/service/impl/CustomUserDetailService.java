@@ -1,17 +1,15 @@
 package br.com.ffroliva.portfolio.service.impl;
 
+import br.com.ffroliva.portfolio.model.User;
+import br.com.ffroliva.portfolio.model.UserPrincipal;
+import br.com.ffroliva.portfolio.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.com.ffroliva.portfolio.model.User;
-import br.com.ffroliva.portfolio.model.UserPrincipal;
-import br.com.ffroliva.portfolio.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +34,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     // This method is used by JWTAuthenticationFilter
     @Transactional
-    public UserDetails loadUserById(Long id) {
+    public UserDetails loadUserById(Integer id) {
         User user = userRepository
                 .findById(id)
                 .orElseThrow(

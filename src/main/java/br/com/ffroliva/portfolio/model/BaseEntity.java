@@ -2,11 +2,6 @@ package br.com.ffroliva.portfolio.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public abstract class BaseEntity<K extends Serializable> implements
 		Serializable {
 
