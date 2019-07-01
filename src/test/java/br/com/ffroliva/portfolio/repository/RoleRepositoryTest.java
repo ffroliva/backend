@@ -22,7 +22,7 @@ class RoleRepositoryTest {
 
     @Test
     void findRole() {
-    	log.info("Find roles...");
+        log.info("Find roles...");
         final Optional<Role> role = roleRepository.findByName(RoleName.ROLE_USER);
         assertTrue(role.isPresent());
     }
@@ -31,9 +31,9 @@ class RoleRepositoryTest {
     void loadRolesByUsername() {
         final Optional<List<Role>> roles = roleRepository.loadRolesByUsername("ffroliva");
         assertTrue(roles.isPresent());
-        assertEquals(roles.get().size(), 1);
+        assertEquals(1, roles.get().size());
         Role role = roles.get().get(0);
-        assertEquals(role.getId(), 1);
-        assertEquals(role.getName(), RoleName.ROLE_USER);
+        assertEquals(1, role.getId());
+        assertEquals(RoleName.ROLE_USER, role.getName());
     }
 }
