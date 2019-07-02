@@ -35,5 +35,6 @@ class RoleRepositoryTest {
         Role role = roles.get().get(0);
         assertEquals(1, role.getId());
         assertEquals(RoleName.ROLE_USER, role.getName());
+        assertEquals(RoleName.ROLE_USER.toString(), role.getName().toString());
     }
 }

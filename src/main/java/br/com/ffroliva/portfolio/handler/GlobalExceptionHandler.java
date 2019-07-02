@@ -36,8 +36,8 @@ class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    ResponseEntity<Object> handleError(final ConstraintViolationException cve) {
-    	log.info("Constraint Violatin Exception, handling error" + cve);
+    public ResponseEntity<Object> handleError(final ConstraintViolationException cve) {
+    	log.info("Constraint Violation Exception, handling error" + cve);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", MediaType.APPLICATION_JSON_UTF8_VALUE);
         for (final ConstraintViolation<?> v : cve.getConstraintViolations())
