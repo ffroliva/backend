@@ -23,6 +23,15 @@ public class ApplicationProperties {
         public String version;
     }
 
+        @Component
+    @ConfigurationProperties()
+    @PropertySource(value = "classpath:application.yml")
+    public static class File {
+
+        @Value("${file.upload-dir}")
+        public String uploadDir;
+    }
+
     private ApplicationProperties() {
     }
 }
