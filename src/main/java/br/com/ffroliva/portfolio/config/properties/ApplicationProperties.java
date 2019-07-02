@@ -1,5 +1,6 @@
 package br.com.ffroliva.portfolio.config.properties;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -23,10 +24,11 @@ public class ApplicationProperties {
         public String version;
     }
 
-        @Component
+    @Getter
+    @Component
     @ConfigurationProperties()
     @PropertySource(value = "classpath:application.yml")
-    public static class File {
+    public static class FileStorageProperties {
 
         @Value("${file.upload-dir}")
         public String uploadDir;

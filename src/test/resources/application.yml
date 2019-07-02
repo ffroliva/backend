@@ -73,7 +73,7 @@ spring:
 ## File Storage Properties
 # All files uploaded through the REST API will be stored in this directory
 file:
-  upload-dir: /ffroliva/portfolio/uploads
+  upload-dir: /tmp/ffroliva/uploads
 
 #Propriedades Documentação
 app-documentation:
