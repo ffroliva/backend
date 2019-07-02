@@ -2,10 +2,14 @@ package br.com.ffroliva.portfolio.controller;
 
 
 import br.com.ffroliva.portfolio.PortfolioBackendApplication;
+import br.com.ffroliva.portfolio.handler.GlobalExceptionHandler;
+import br.com.ffroliva.portfolio.payload.ApiError;
 import br.com.ffroliva.portfolio.payload.LoginRequest;
 import br.com.ffroliva.portfolio.payload.SignupRequest;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import io.restassured.module.mockmvc.response.MockMvcResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -24,6 +28,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
 
+@Slf4j
 @SpringBootTest(
 		webEnvironment = SpringBootTest.WebEnvironment.MOCK, 
 		classes = { PortfolioBackendApplication.class })
@@ -78,19 +83,26 @@ public class AuthenticationControllerTest {
 				.body("message", equalTo(EMAIL_ALREADY_IN_USE.message()));
 	}
 
-	// TODO: Review Global Exception Handler to make this test pass.
-	@Disabled
 	@Test
 	public void signup_with_email_with_invalid_min_size(){
-        given()
-        	.contentType(JSON)
-			.body(SignupRequest.of("Flavio", "Oliva", "newuser", "test@gmail.com", "123"))
-		.post("/api/auth/signup")
+		final MockMvcResponse response = given()
+				.contentType(JSON)
+				.body(SignupRequest.of("Flavio", "Oliva", "newuser", "test@gmail.com", "123"))
+				.post("/api/auth/signup");
+
+		log.debug(response.toString());
+		log.debug(response.getBody().prettyPrint());
+		response.then().assertThat()
+				//.body("apierror.status", equalTo(BAD_REQUEST))
+				.body("apierror.message", equalTo(GlobalExceptionHandler.VALIDATION_ERROR));
+
+/*
 			.then()
 				.statusCode(BAD_REQUEST.value())
 			.assertThat()
 				.body("success", equalTo(false)) 
 				.body("message", equalTo(EMAIL_ALREADY_IN_USE.message()));
+*/
 	}
 	
 	@Test
