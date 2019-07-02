@@ -30,12 +30,12 @@ class UserRepositoryTest {
     void addUser() {
         User user = userRepository.save(USER);
         assertNotNull(user.getId());
-        assertEquals(user.getEmail(), EMAIL);
-        assertEquals(user.getFirstName(), FIRST_NAME);
-        assertEquals(user.getFullName(), FULL_NAME);
-        assertEquals(user.getLastName(), LAST_NAME);
-        assertEquals(user.getPassword(), PASSWORD);
-        assertEquals(user.getUsername(), USERNAME);
+        assertEquals(EMAIL, user.getEmail());
+        assertEquals(FIRST_NAME, user.getFirstName());
+        assertEquals(FULL_NAME, user.getFullName());
+        assertEquals(LAST_NAME, user.getLastName());
+        assertEquals(PASSWORD, user.getPassword());
+        assertEquals(USERNAME, user.getUsername());
         assertNull(user.getUserRoles());
         assertNotNull(user.getCreatedAt());
         assertNotNull(user.getUpdatedAt());
