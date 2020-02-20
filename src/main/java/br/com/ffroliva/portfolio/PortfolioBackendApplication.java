@@ -60,5 +60,7 @@ public class PortfolioBackendApplication implements CommandLineRunner {
 				encodedPassword));
 		userRoleRepository.save(UserRole.of(user,roleUser));
 
+		log.info("Finished Inicialization...");
+
 	}
 }
