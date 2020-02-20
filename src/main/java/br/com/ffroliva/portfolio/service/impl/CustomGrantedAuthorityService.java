@@ -23,7 +23,7 @@ public class CustomGrantedAuthorityService implements GrantedAuthorityService {
         final Optional<List<Role>> roles = roleRepository.loadRolesByUsername(username);
         return roles.orElseThrow(() -> new ResourceNotFoundException(
                 Role.class.getSimpleName(),
-                "üsername"
+                "username"
                 , username))
                 .stream()
                 .map(r -> new SimpleGrantedAuthority(r.getName().toString()))
