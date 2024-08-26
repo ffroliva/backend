@@ -18,7 +18,7 @@
 		<java.version>1.8</java.version>
 		<org.junit.jupiter.version>5.4.2</org.junit.jupiter.version>
 		<io.jsonwebtoken.jjwt.version>0.9.1</io.jsonwebtoken.jjwt.version>
-		<swagger.version>2.9.2</swagger.version>
+		<swagger.version>2.10.0</swagger.version>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <okhttp.version>3.14.2</okhttp.version>
         <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
